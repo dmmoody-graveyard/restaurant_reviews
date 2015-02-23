@@ -1,17 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="restaurant">
 <head>
   <meta charset="UTF-8">
   <script src="lib/angular.js"></script>
   <script src="app.js"></script>
+  <script src="js/RestaurantsController.js"></script>
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
   <title>Best Restaurants</title>
 </head>
 <body>
   <div class="container">
-    <div class="row">
+    <div class="row col-md-12" ng-controller="RestaurantCtrl">
       <h1>Best Restaurants</h1>
-      
+      <ul>
+        <li ng-repeat="item in restaurants">{{item.name}}</li>
+      </ul>
+    </div>
+
+    <div class="col-md-12">
+      <h2>New Restaurant</h2>
+      <form ng-submit="addRestaurant()" class="form-inline" role="form">
+        <div class="form-group">
+          <input type="text" ng-model="restaurantName" class="form-control" placeholder="Enter Name">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
     </div>
   </div>
 </body>
