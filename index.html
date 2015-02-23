@@ -6,6 +6,7 @@
   <script src="app.js"></script>
   <script src="js/RestaurantsController.js"></script>
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="css/styles.css" type="text/css">
   <title>Best Restaurants</title>
 </head>
 <body>
@@ -23,8 +24,8 @@
           </form>
         </div>
       </div>
-
-      <div class="well" ng-repeat="item in restaurants">
+      <hr>
+      <div class="well" ng-repeat="item in restaurants | filter:query">
         <span ng-click="editing = true" ng-hide="editing">
           <p class="lead">{{item.name}} <a ng-click='editRestaurant(item)' class='pull-right'>Edit</a></p>
           <p><strong>Location:</strong> {{item.location}}</p>
