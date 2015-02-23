@@ -1,7 +1,7 @@
 restaurant.controller('RestaurantCtrl', function RestaurantCtrl($scope) {
-  $scope.restaurants = [
-    { name: "Portland City Grill"},
-    { name: "Fox and Hounds"},
-    { name: "Monte Carlos"}
-  ]
+  $scope.restaurants = [];
+  $scope.addRestaurant = function() {
+    $scope.restaurants.push({ name: $scope.restaurantName });
+    $scope.restaurantName = null;
+  };
 });
